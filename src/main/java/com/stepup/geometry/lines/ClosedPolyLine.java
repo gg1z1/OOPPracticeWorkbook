@@ -1,5 +1,7 @@
 package com.stepup.geometry.lines;
 
+import com.stepup.geometry.points.simple.Point;
+
 import java.util.List;
 
 public class ClosedPolyLine extends PolyLine{

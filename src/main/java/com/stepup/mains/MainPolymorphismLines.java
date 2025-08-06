@@ -58,10 +58,7 @@ public class MainPolymorphismLines {
 //        Measurable[] objects = {new StringAdapter("123456"), ln,ln2,ln3,ln4, polyLine, cpl};
 //        measureLength(objects);
 //
-        //задание 7
-        System.out.println("Результат первого сложения: " + sumAll(2, 3/5, 2.3));
-        System.out.println("Результат второго сложения: " + sumAll(3.6, 49/12, 3, 3.0/2));
-        System.out.println("Результат третьего сложения: " + sumAll(1.0/3, 1));
+
 
     }
 
@@ -69,14 +66,6 @@ public class MainPolymorphismLines {
         for (Measurable obj : objects) {
             System.out.println("Длина объекта: " + obj.getLength());
         }
-    }
-
-    public static double sumAll(double... numbers) {
-        double sum = 0.0;
-        for (double number : numbers) {
-            sum += number;
-        }
-        return sum;
     }
 
 }

@@ -1,6 +1,6 @@
 package com.stepup.calculator.advanced;
 
-public class Fraction extends Number{
+public class Fraction extends Number {
     // Приватные финальные поля для инкапсуляции
     private final int numerator;
     private final int denominator;
@@ -51,6 +51,10 @@ public class Fraction extends Number{
         //целое число можно представить как знаменатель дробь 1
         return this.sum(new Fraction(number, 1));
     }
+
+//    public double toDouble(){
+//        return doubleValue();
+//    }
 
     // Метод строкового представления
     @Override
