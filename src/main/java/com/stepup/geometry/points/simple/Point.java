@@ -1,9 +1,11 @@
 package com.stepup.geometry.points.simple;
 
-public class Point {
+import java.util.Objects;
+
+public class Point implements Cloneable{
     // Поля класса
     // Хороший тон - private final что бы нельзя было менять
-    private final int  x;
+    private final int x;
     private final int y;
 
     // Конструктор (инициализатор)
@@ -28,5 +30,27 @@ public class Point {
         return "{" + x + ";" + y + "}";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Point tmpPoint  = (Point) o;
+        return x == tmpPoint .x && y == tmpPoint .y;
+    }
 
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        hash = 31 * hash + x;
+        hash = 31 * hash + y;
+        return hash;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return (Point) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError(e);
+        }
+    }
 }
