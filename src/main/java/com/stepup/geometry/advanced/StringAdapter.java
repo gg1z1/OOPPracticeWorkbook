@@ -1,4 +1,4 @@
-package com.stepup.calculator.advanced;
+package com.stepup.geometry.advanced;
 
 import com.stepup.geometry.lines.Measurable;
 

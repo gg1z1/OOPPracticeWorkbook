@@ -36,15 +36,31 @@ public class MainCalculator {
 //        System.out.println(calc.calculate(slozhenie,1,2));
 //        System.out.println(calc.calculate(slozhenie,1,2));
 
-        Fraction drob1 = new Fraction(3,5);
-        Fraction drob2 = new Fraction(49,12);
-        Fraction drob3 = new Fraction(1,3);
+//        Fraction drob1 = new Fraction(3,5);
+//        Fraction drob2 = new Fraction(49,12);
+//        Fraction drob3 = new Fraction(1,3);
+//
+//        drob3.sum(5);
+//        //задание 7
+//        System.out.println("Результат первого сложения: " + calc.sumAll(2, drob1, 2.3));
+//        System.out.println("Результат второго сложения: " + calc.sumAll(3.6, drob2, 3, 3.0/2));
+//        System.out.println("Результат третьего сложения: " + calc.sumAll(drob3, 1));
 
-        drob3.sum(5);
-        //задание 7
-        System.out.println("Результат первого сложения: " + calc.sumAll(2, drob1, 2.3));
-        System.out.println("Результат второго сложения: " + calc.sumAll(3.6, drob2, 3, 3.0/2));
-        System.out.println("Результат третьего сложения: " + calc.sumAll(drob3, 1));
+        // Проверяем корректность входных параметров
+        if (args.length != 2) {
+            System.out.println("Необходимо передать два параметра!");
+            return;
+        }
+
+        try {
+            // Вызываем метод с параметрами из командной строки
+            double result = calc.power(args[0], args[1]);
+            System.out.println("Результат: " + result);
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: введите корректные числа!");
+        }
+
+
     }
 
 

@@ -10,7 +10,7 @@ public class Employee {
             throw new IllegalArgumentException("Имя сотрудника не может быть пустым");
         }
         this.name = name;
-    }
+    }   
 
     public String getName() {
         return name;
