@@ -1,11 +1,7 @@
 package com.stepup.mains;
 
-import com.stepup.calculator.advanced.Fraction;
+import com.stepup.calculator.operations.Operations;
 import com.stepup.calculator.basic.Calculator;
-import com.stepup.calculator.operations.AddOperation;
-import com.stepup.calculator.operations.DelimOperation;
-
-import javax.xml.stream.FactoryConfigurationError;
 
 public class MainCalculator {
     public static void main(String[] args){
@@ -47,19 +43,31 @@ public class MainCalculator {
 //        System.out.println("Результат третьего сложения: " + calc.sumAll(drob3, 1));
 
         // Проверяем корректность входных параметров
-        if (args.length != 2) {
-            System.out.println("Необходимо передать два параметра!");
-            return;
-        }
+//        if (args.length != 2) {
+//            System.out.println("Необходимо передать два параметра!");
+//            return;
+//        }
+//
+//        try {
+//            // Вызываем метод с параметрами из командной строки
+//            double result = calc.power(args[0], args[1]);
+//            System.out.println("Результат: " + result);
+//        } catch (NumberFormatException e) {
+//            System.out.println("Ошибка: введите корректные числа!");
+//        }
 
-        try {
-            // Вызываем метод с параметрами из командной строки
-            double result = calc.power(args[0], args[1]);
-            System.out.println("Результат: " + result);
-        } catch (NumberFormatException e) {
-            System.out.println("Ошибка: введите корректные числа!");
-        }
+        // Использование операций
+        System.out.println(Operations.ADD.calculate (2, 2));
+        System.out.println(Operations.SUBTRACT.calculate (2, 2));
+        System.out.println(Operations.MULTIPLY.calculate (2, 2));
+        System.out.println(Operations.DIVIDE.calculate (2, 2));
 
+        //Через переменную
+        Operations operation = Operations.valueOf("ADD");
+        System.out.println(operation.calculate(1,2));
+
+        //через аналог свитча
+        System.out.println(Operations.getOperationByCode(4).calculate(2, 2));
 
     }
 
