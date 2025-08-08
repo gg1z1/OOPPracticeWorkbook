@@ -1,5 +1,6 @@
 package com.stepup.mains;
 
+import com.stepup.calculator.advanced.Fraction;
 import com.stepup.calculator.operations.Operations;
 import com.stepup.calculator.basic.Calculator;
 
@@ -25,7 +26,7 @@ public class MainCalculator {
 //	        at com.stepup.practice.com.stepup.check.Main.main(com.stepup.check.Main.java:12)
 //        * */
 
-        Calculator calc = new Calculator();
+//        Calculator calc = new Calculator();
 
 //        AddOperation slozhenie = new AddOperation();
 //        DelimOperation delenie = new DelimOperation();
@@ -55,20 +56,30 @@ public class MainCalculator {
 //        } catch (NumberFormatException e) {
 //            System.out.println("Ошибка: введите корректные числа!");
 //        }
+//
+//        // Использование операций
+//        System.out.println(Operations.ADD.calculate (2, 2));
+//        System.out.println(Operations.SUBTRACT.calculate (2, 2));
+//        System.out.println(Operations.MULTIPLY.calculate (2, 2));
+//        System.out.println(Operations.DIVIDE.calculate (2, 2));
+//
+//        //Через переменную
+//        Operations operation = Operations.valueOf("ADD");
+//        System.out.println(operation.calculate(1,2));
+//
+//        //через аналог свитча
+//        System.out.println(Operations.getOperationByCode(4).calculate(2, 2));
+//
 
-        // Использование операций
-        System.out.println(Operations.ADD.calculate (2, 2));
-        System.out.println(Operations.SUBTRACT.calculate (2, 2));
-        System.out.println(Operations.MULTIPLY.calculate (2, 2));
-        System.out.println(Operations.DIVIDE.calculate (2, 2));
+        Fraction f1 = new Fraction(1, 3);    // 1/3
+        Fraction f2 = new Fraction(1, 3);    // 1/3
+        Fraction f3 = new Fraction(3, 1);    // 7/8
 
-        //Через переменную
-        Operations operation = Operations.valueOf("ADD");
-        System.out.println(operation.calculate(1,2));
+        System.out.println(f1.equals(f2)); // true
+        System.out.println(f1.equals(f3)); // false
 
-        //через аналог свитча
-        System.out.println(Operations.getOperationByCode(4).calculate(2, 2));
-
+        System.out.println(f1.hashCode()==f2.hashCode()); // true
+        System.out.println(f1.hashCode()==f3.hashCode()); // false
     }
 
 

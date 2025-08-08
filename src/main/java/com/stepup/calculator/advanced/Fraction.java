@@ -8,9 +8,7 @@ public class Fraction extends Number {
     // Конструктор с проверкой знаменателя
     public Fraction(int numerator, int denominator) {
         //знаменатель не может быть меньше/равен 0 по условиям задачи
-        if (denominator <= 0) {
-            throw new IllegalArgumentException("Знаменатель должен быть положительным");
-        }
+        if (denominator == 0) throw new IllegalArgumentException("Знаменатель не может быть равен 0");
         //числитель, знаменатель
         this.numerator = numerator;
         this.denominator = denominator;
@@ -27,6 +25,14 @@ public class Fraction extends Number {
 
         System.out.println("Результат суммирования: " + newNumerator + "/" + newDenominator);
         return new Fraction(newNumerator, newDenominator);
+    }
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
     }
 
     // Метод для вычитания дроби
@@ -52,9 +58,7 @@ public class Fraction extends Number {
         return this.sum(new Fraction(number, 1));
     }
 
-//    public double toDouble(){
-//        return doubleValue();
-//    }
+
 
     // Метод строкового представления
     @Override
@@ -80,5 +84,30 @@ public class Fraction extends Number {
     @Override
     public double doubleValue() {
         return (double) numerator / denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        hash = 31 * hash + numerator;
+        hash = 31 * hash + denominator;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null||getClass() != obj.getClass()) return false;
+
+        final Fraction other = (Fraction) obj;
+        return numerator == other.numerator
+                && denominator == other.denominator;
+    }
+
+    //Используем защитное копирование, т.к. поля определены как final
+    @Override
+    protected Object clone() {
+            // Создаем новый объект того же класса
+            return new Fraction(this.numerator,this.denominator);
     }
 }
