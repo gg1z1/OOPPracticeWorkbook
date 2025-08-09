@@ -36,7 +36,7 @@
                     <archive>
                         <manifest>
                             <!--здесь ваш главный класс -->
-                            <mainClass>com.stepup.mains.MainSum</mainClass>
+                            <mainClass>com.stepup.mains.MainSum2</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
