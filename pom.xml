@@ -25,7 +25,7 @@
 
     <build>
         <!-- имя JAR-файла -->
-        <finalName>calculator</finalName>
+        <finalName>sum</finalName>
         <!-- добавление файла -->
         <plugins>
             <plugin>
@@ -36,7 +36,7 @@
                     <archive>
                         <manifest>
                             <!--здесь ваш главный класс -->
-                            <mainClass>com.stepup.mains.MainCalculator</mainClass>
+                            <mainClass>com.stepup.mains.MainSum</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
