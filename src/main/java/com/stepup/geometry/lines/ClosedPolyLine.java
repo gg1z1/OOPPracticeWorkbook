@@ -24,4 +24,6 @@ public class ClosedPolyLine extends PolyLine{
         lines.add(new Line(getPoint(0),getPoint( super.getPointsCount()- 1)));
         return lines;
     }
+
+
 }

@@ -5,8 +5,9 @@ import com.stepup.geometry.points.simple.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
-public class PolyLine implements Measurable {
+public class PolyLine implements Measurable, Cloneable {
     // Выбрал List т.к. с ним удобнее работать через дженерик points
     // Честно я поверхностно понимаю как работает дженерик,
     // но с List я работал именно в таком ключе
@@ -88,7 +89,48 @@ public class PolyLine implements Measurable {
         return points.get(index);
     }
 
-    protected int getPointsCount() {
+    public int getPointsCount() {
         return points.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || !(o instanceof PolyLine)) return false;
+        PolyLine polyLine = (PolyLine) o;
+
+        // Приведение типа с учетом возможности подклассов
+        if (points.size() != polyLine.points.size()) return false;
+
+        //проверка по точкам
+        for (int i = 0; i < points.size(); i++) {
+            if (!points.get(i).equals(polyLine.points.get(i))) return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        for (Point point : points) {
+            hash = 31 * hash + (point != null ? point.hashCode() : 0);
+        }
+        return hash;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            PolyLine cloned = (PolyLine) super.clone();
+            // Создаем новый список точек
+            cloned.points = new ArrayList<>();
+            // Выполняем глубокое копирование каждой точки
+            for (Point point : this.points) {
+                cloned.points.add((Point) point.clone());
+            }
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError(e);
+        }
     }
 }
